@@ -4,6 +4,7 @@ package com.hungerbridge.hungerbridge.Controllers;
 import com.hungerbridge.hungerbridge.Dtos.FoodPostRequest;
 import com.hungerbridge.hungerbridge.Dtos.FoodPostResponse;
 import com.hungerbridge.hungerbridge.Services.FoodPostService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class FoodPostController {
     private FoodPostService foodPostService;
 
     @PostMapping
-    public FoodPostResponse createFoodPost(@RequestBody FoodPostRequest foodPostRequest){
+    public FoodPostResponse createFoodPost(@Valid @RequestBody FoodPostRequest foodPostRequest){
         return foodPostService.createFoodPost(foodPostRequest);
     }
 

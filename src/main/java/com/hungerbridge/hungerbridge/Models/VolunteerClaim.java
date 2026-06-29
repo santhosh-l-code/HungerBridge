@@ -22,8 +22,8 @@ public class VolunteerClaim {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "food_post_id",nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "food_post_id",nullable = false,unique=false)
     private FoodPost foodPost;
 
     @NotBlank(message = "Volunteer name is Required")
